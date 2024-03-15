@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
-import { GameMove } from '@/components/Game/GameMove'
-import { TestProviders } from '@/test-utils'
+import { GameMove } from '@app/components/Game/GameMove'
+import { TestProviders } from '@app/test-utils'
 
 describe('<GameMove />', () => {
   afterEach(() => {

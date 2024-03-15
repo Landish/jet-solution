@@ -1,10 +1,10 @@
 import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
 
-import App from '@/App'
+import App from '@app/App'
 import { TestProviders, loginTestUser } from './test-utils'
 
-jest.mock('@/services/roomService', () => {
+jest.mock('@app/services/roomService', () => {
   return {
     getRooms: [],
   }

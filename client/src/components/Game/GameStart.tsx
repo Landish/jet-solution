@@ -1,8 +1,8 @@
 import { ReactNode } from 'react'
-import { useSocket } from '@/hooks/useSocket'
-import { gameReadyAtom } from '@/store/store'
+import { useSocket } from '@app/hooks/useSocket'
+import { gameReadyAtom } from '@app/store/store'
 import { useAtomValue } from 'jotai'
-import { Button } from '@/components/Button/Button'
+import { Button } from '@app/components/Button/Button'
 
 export function GameStart(): ReactNode {
   const { socket } = useSocket()
