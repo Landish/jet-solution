@@ -1,20 +1,23 @@
 import { useEffect } from 'react'
 import { useAtomValue } from 'jotai'
-import { IGameMove, IGameOver, isSocketConnectedAtom } from '@app/store'
+import { IGameMove, IGameOver, ITurn, isSocketConnectedAtom } from '@app/store'
 import { useSocket } from '@app/hooks'
 
 export interface ISocketServerEventsMap {
-  randomNumber: (data: IGameMove) => void
-  activateYourTurn: (data: { user: string; state: string }) => void
-  gameOver: (data: IGameOver) => void
-  onReady: (data: { state: boolean }) => void
-  listTrigger: (data: 'true' | 'false') => void
-  message: (data: { message: string }) => void
+  randomNumber: IGameMove
+  activateYourTurn: ITurn
+  gameOver: IGameOver
+  onReady: { state: boolean }
+  message: { message: string }
+  listTrigger: 'true'
 }
 
-export function useSocketCallback<TData>(
-  event: keyof ISocketServerEventsMap,
-  callback: (data: TData) => void,
+type EventData<T extends keyof ISocketServerEventsMap> =
+  ISocketServerEventsMap[T]
+
+export function useSocketCallback<TEvent extends keyof ISocketServerEventsMap>(
+  event: TEvent,
+  callback: (data: EventData<TEvent>) => void,
 ) {
   const { socket } = useSocket()
   const connected = useAtomValue(isSocketConnectedAtom)
@@ -22,7 +25,7 @@ export function useSocketCallback<TData>(
   useEffect(() => {
     if (!connected) return
 
-    function handleCallback(data: TData) {
+    function handleCallback(data: EventData<TEvent>) {
       callback(data)
     }
 

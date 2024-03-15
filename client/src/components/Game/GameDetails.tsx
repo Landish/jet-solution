@@ -2,9 +2,6 @@ import { ReactNode } from 'react'
 import { useAtom, useAtomValue, useSetAtom } from 'jotai'
 import { GameControls, GameMoves, GameStart } from '@app/components'
 import {
-  IGameMove,
-  IGameOver,
-  ITurn,
   currentNumberAtom,
   currentTurnAtom,
   gameMovesAtom,
@@ -23,18 +20,18 @@ export function GameDetails(): ReactNode {
   const gameStarted = useAtomValue(gameStartedAtom)
   const [gameOver, setGameOver] = useAtom(gameOverAtom)
 
-  useSocketCallback<{ state: boolean }>('onReady', (data) => {
+  useSocketCallback('onReady', (data) => {
     logger('onReady', data)
     setGameReady(data.state)
   })
 
-  useSocketCallback<ITurn>('activateYourTurn', (data) => {
+  useSocketCallback('activateYourTurn', (data) => {
     if (gameOver?.isOver) return
     logger('activateYourTurn', data)
     setCurrentTurn(data)
   })
 
-  useSocketCallback<IGameOver>('gameOver', (data) => {
+  useSocketCallback('gameOver', (data) => {
     if (gameOver?.isOver) return
     logger('gameOver', data)
 
@@ -43,7 +40,7 @@ export function GameDetails(): ReactNode {
     setCurrentTurn(null)
   })
 
-  useSocketCallback<IGameMove>('randomNumber', (data) => {
+  useSocketCallback('randomNumber', (data) => {
     if (gameOver?.isOver) return
 
     logger('randomNumber', data)
