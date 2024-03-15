@@ -1,0 +1,32 @@
+version: "3"
+services:
+  json-server:
+    image: vimagick/json-server
+    container_name: "json-server"
+    env_file: .env
+    command: -h 0.0.0.0 -p ${HOST_PORT} -w /fakeDb/fake.json
+    ports:
+      - "${HOST_PORT}:${HOST_PORT}"
+    volumes:
+      - ./fakeDb:/fakeDb
+    restart: always
+  wss:
+    build: wss
+    container_name: "socket"
+    env_file: .env
+    environment:
+      - HOST_LOCAL=json-server
+    ports:
+      - "${SOCKET_PORT}:${SOCKET_PORT}"
+    volumes:
+      - ./wss/:/wss
+    working_dir: /wss
+  client:
+    build: client 
+    container_name: "client"
+    env_file: .env
+    ports:
+      - "${CLIENT_PORT}:${CLIENT_PORT}"
+    volumes:
+      - ./client/:/client
+    working_dir: /client
