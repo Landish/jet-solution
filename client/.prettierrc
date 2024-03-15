@@ -3,5 +3,23 @@
   "tabWidth": 2,
   "semi": false,
   "singleQuote": true,
-  "bracketSpacing": true
+  "bracketSpacing": true,
+  "importOrderSeparation": false,
+  "importOrder": [
+    "react",
+    "@testing-library",
+    "<THIRD_PARTY_MODULES>",
+    "^@app/views(.*)$",
+    "^@app/providers(.*)$",
+    "^@app/components(.*)$",
+    "^@app/store(.*)$",
+    "^@app/libs(.*)$",
+    "^@app/utils(.*)$",
+    "^@app/hooks(.*)$",
+    "^[./]"
+  ],
+  "plugins": [
+    "@trivago/prettier-plugin-sort-imports",
+    "prettier-plugin-tailwindcss"
+  ]
 }

@@ -1,7 +1,7 @@
 import { ReactNode, useEffect, useRef } from 'react'
 import { useAtomValue } from 'jotai'
-import { gameMovesAtom } from '@app/store'
 import { GameMove } from '@app/components'
+import { gameMovesAtom } from '@app/store'
 
 export function GameMoves(): ReactNode {
   const scrollRef = useRef<HTMLDivElement>(null)
@@ -21,7 +21,7 @@ export function GameMoves(): ReactNode {
      * Max-Height: 100% - header - footer - game controls
      */
     <div
-      className="empty:hidden max-h-[calc(100vh_-_88px_-_72px_-_72px)] overflow-hidden overflow-y-auto space-y-4 p-4"
+      className="max-h-[calc(100vh_-_88px_-_72px_-_72px)] space-y-4 overflow-hidden overflow-y-auto p-4 empty:hidden"
       data-testid="GameMoves"
     >
       {gameMoves.map((move, index) => (

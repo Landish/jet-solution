@@ -1,9 +1,9 @@
 import { ReactNode } from 'react'
 import { useAtom } from 'jotai'
-import { useSocket } from '@app/hooks'
-import { authUserAtom, usernameAtom } from '@app/store'
 import { Container, Button } from '@app/components'
+import { authUserAtom, usernameAtom } from '@app/store'
 import { logger } from '@app/utils'
+import { useSocket } from '@app/hooks'
 
 export function LoginView(): ReactNode {
   const { socket } = useSocket()
@@ -21,11 +21,11 @@ export function LoginView(): ReactNode {
   }
 
   return (
-    <Container className="flex-1 grid" data-testid="LoginView">
+    <Container className="grid flex-1" data-testid="LoginView">
       <main className="bg-white">
         <form
           onSubmit={handleLogin}
-          className="flex flex-col space-y-4 items-center justify-center h-full w-full"
+          className="flex h-full w-full flex-col items-center justify-center space-y-4"
         >
           <input
             value={username}
@@ -33,7 +33,7 @@ export function LoginView(): ReactNode {
             autoFocus
             type="text"
             placeholder="Username"
-            className="bg-grey rounded-full h-14 text-green text-base shadow min-w-60 focus:outline-none px-6"
+            className="h-14 min-w-60 rounded-full bg-grey px-6 text-base text-green shadow focus:outline-none"
           />
           <Button disabled={!username} type="submit">
             Login

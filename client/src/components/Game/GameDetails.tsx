@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 import { useAtom } from 'jotai'
-import { useSocketCallback } from '@app/hooks'
+import { GameControls, GameMoves, GameStart } from '@app/components'
 import {
   IGameMove,
   IGameOver,
@@ -12,7 +12,7 @@ import {
   gameReadyAtom,
 } from '@app/store'
 import { logger } from '@app/utils'
-import { GameControls, GameMoves, GameStart } from '@app/components'
+import { useSocketCallback } from '@app/hooks'
 
 export function GameDetails(): ReactNode {
   const [currentNumber, setCurrentNumber] = useAtom(currentNumberAtom)

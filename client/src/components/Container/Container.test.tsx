@@ -1,5 +1,5 @@
-import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
+import '@testing-library/jest-dom'
 import { Container } from '@app/components'
 
 describe('<Container />', () => {

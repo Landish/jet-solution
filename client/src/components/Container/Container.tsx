@@ -1,4 +1,5 @@
 import { ComponentProps, ReactNode } from 'react'
+import { cn } from '@app/utils'
 
 interface ContainerProps extends ComponentProps<'div'> {
   children: React.ReactNode
@@ -12,7 +13,10 @@ export function Container({
 }: ContainerProps): ReactNode {
   return (
     <div
-      className={`w-full px-4 md:px-6 max-w-screen-xl m-auto xl:px-24 ${className}`}
+      className={cn(
+        'm-auto w-full max-w-screen-xl px-4 md:px-6 xl:px-24',
+        className,
+      )}
       {...props}
     >
       {children}

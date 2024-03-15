@@ -1,7 +1,7 @@
-import '@testing-library/jest-dom'
 import { act, render, screen } from '@testing-library/react'
-import { GameMoves } from '@app/components'
+import '@testing-library/jest-dom'
 import { TestProviders, getTestStore } from '@app/test-utils'
+import { GameMoves } from '@app/components'
 import { gameMovesAtom } from '@app/store'
 
 describe('<GameMoves />', () => {

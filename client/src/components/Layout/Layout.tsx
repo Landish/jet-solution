@@ -7,7 +7,7 @@ interface LayoutProps {
 
 export function Layout({ children }: LayoutProps): ReactNode {
   return (
-    <div className="min-h-screen flex flex-col bg-grey">
+    <div className="flex min-h-screen flex-col bg-grey">
       <Header />
       {children}
       <Footer />

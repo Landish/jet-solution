@@ -1,10 +1,10 @@
 import { ReactNode } from 'react'
 import { useAtomValue } from 'jotai'
-import { Layout } from '@app/components'
 import { GamesView, LoginView } from '@app/views'
-import { useSocketCallback } from '@app/hooks'
+import { Layout } from '@app/components'
 import { isAuthenticatedAtom } from '@app/store'
 import { logger } from '@app/utils'
+import { useSocketCallback } from '@app/hooks'
 
 export default function App(): ReactNode {
   const isAuthenticated = useAtomValue(isAuthenticatedAtom)

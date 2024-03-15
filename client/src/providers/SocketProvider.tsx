@@ -1,9 +1,8 @@
 import { createContext, useEffect } from 'react'
 import { useAtom } from 'jotai'
-
-import { logger } from '@app/utils'
-import { socket } from '@app/libs'
 import { isSocketConnectedAtom } from '@app/store'
+import { socket } from '@app/libs'
+import { logger } from '@app/utils'
 
 export const SocketContext = createContext({
   socket,

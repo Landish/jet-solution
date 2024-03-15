@@ -1,8 +1,8 @@
 import { ReactNode } from 'react'
-import { useSocket } from '@app/hooks'
-import { gameReadyAtom } from '@app/store'
 import { useAtomValue } from 'jotai'
 import { Button } from '@app/components'
+import { gameReadyAtom } from '@app/store'
+import { useSocket } from '@app/hooks'
 
 export function GameStart(): ReactNode {
   const { socket } = useSocket()
@@ -14,7 +14,7 @@ export function GameStart(): ReactNode {
 
   return (
     <div
-      className="flex items-center justify-center h-full"
+      className="flex h-full items-center justify-center"
       data-testid="GameStart"
     >
       <Button onClick={handleGameStart} disabled={!isGameReady}>

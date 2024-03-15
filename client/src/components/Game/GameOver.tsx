@@ -1,13 +1,13 @@
 import { useAtom, useAtomValue } from 'jotai'
+import { Button, WinAnimation, LooseAnimation } from '@app/components'
 import {
   gameMovesAtom,
   gameOverAtom,
   gameReadyAtom,
   isWinnerAtom,
 } from '@app/store'
-import { Button, WinAnimation, LooseAnimation } from '@app/components'
-import { useSocket } from '@app/hooks'
 import { logger } from '@app/utils'
+import { useSocket } from '@app/hooks'
 
 export function GameOver() {
   const { socket } = useSocket()
@@ -30,15 +30,15 @@ export function GameOver() {
 
   return (
     <div
-      className="absolute inset-0 bg-black bg-opacity-50 z-50"
+      className="absolute inset-0 z-50 bg-black bg-opacity-50"
       data-testid="GameOver"
     >
-      <div className="flex pt-[15%] justify-center h-full">
+      <div className="flex h-full justify-center pt-[15%]">
         <div className="space-y-4">
           <div className="flex justify-center">
             {isWinner ? <WinAnimation /> : <LooseAnimation />}
           </div>
-          <h2 className="text-white text-center font-bold text-[40px] leading-[50px]">
+          <h2 className="text-center text-[40px] font-bold leading-[50px] text-white">
             {isWinner ? 'You Won!' : 'You lost!'}
           </h2>
           <Button onClick={handleNewGame} disabled={!isGameReady}>

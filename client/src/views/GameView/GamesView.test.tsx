@@ -1,5 +1,5 @@
-import '@testing-library/jest-dom'
 import { act, render, screen } from '@testing-library/react'
+import '@testing-library/jest-dom'
 import { TestProviders, getTestStore } from '@app/test-utils'
 import { GamesView } from '@app/views'
 import { currentRoomAtom } from '@app/store'

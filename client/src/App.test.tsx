@@ -1,6 +1,5 @@
-import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
-
+import '@testing-library/jest-dom'
 import App from '@app/App'
 import { TestProviders, loginTestUser } from '@app/test-utils'
 

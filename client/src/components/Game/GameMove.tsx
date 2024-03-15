@@ -2,7 +2,7 @@ import { ReactNode } from 'react'
 import { useAtomValue } from 'jotai'
 import { IconPlayer, IconCPU } from '@app/components'
 import { IGameMove, authUserAtom } from '@app/store'
-import { calculateResult, formulaFormatted } from '@app/utils'
+import { calculateResult, cn, formulaFormatted } from '@app/utils'
 
 export function GameMove({ move }: { move: IGameMove }): ReactNode {
   const { number, selectedNumber, isCorrectResult, user } = move
@@ -12,33 +12,32 @@ export function GameMove({ move }: { move: IGameMove }): ReactNode {
 
   return (
     <div
-      className={
-        isRightDirection
-          ? 'flex space-x-4 flex-row-reverse space-x-reverse'
-          : 'flex space-x-4'
-      }
+      className={cn(
+        'flex space-x-4',
+        isRightDirection && 'flex-row-reverse space-x-reverse',
+      )}
       data-testid="GameMove"
     >
       {user === 'CPU' ? <IconCPU /> : <IconPlayer />}
       <div
-        className={
-          isRightDirection
-            ? 'flex-1 flex justify-end text-right'
-            : 'flex-1 flex'
-        }
+        className={cn(
+          'flex flex-1',
+          isRightDirection && 'justify-end text-right',
+        )}
       >
-        <div className="space-y-2 w-full sm:w-1/2">
+        <div className="w-full space-y-2 sm:w-1/2">
           <div
-            className={`${
-              isCorrectResult ? 'bg-blue' : 'bg-green'
-            } h-14 w-14 rounded-full inline-flex items-center justify-center text-white font-bold text-2xl`}
+            className={cn(
+              'inline-flex h-14 w-14 items-center justify-center rounded-full text-2xl font-bold text-white',
+              isCorrectResult ? 'bg-blue' : 'bg-green',
+            )}
           >
             {selectedNumber}
           </div>
-          <div className="bg-grey truncate text-green rounded-sm px-4 h-8 flex items-center">
+          <div className="flex h-8 items-center truncate rounded-sm bg-grey px-4 text-green">
             {formulaFormatted({ number, selectedNumber })}
           </div>
-          <div className="bg-grey text-green rounded-sm px-4 h-8 flex items-center">
+          <div className="flex h-8 items-center rounded-sm bg-grey px-4 text-green">
             {calculateResult({ number, selectedNumber })}
           </div>
         </div>

@@ -1,3 +1,6 @@
+import { clsx, type ClassValue } from 'clsx'
+import { twMerge } from 'tailwind-merge'
+
 interface CalculateNumbers {
   selectedNumber: number
   number: number
@@ -33,4 +36,8 @@ export function logger(message: string, ...args: unknown[]): void {
   console.group(message)
   console.log(...args)
   console.groupEnd()
+}
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
 }

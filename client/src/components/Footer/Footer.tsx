@@ -8,7 +8,7 @@ export function Footer(): ReactNode {
         <div className="flex items-center justify-between">
           <LogoFull />
           <div className="flex items-center space-x-10">
-            <a href="#" className="text-white text-xs hover:underline">
+            <a href="#" className="text-xs text-white hover:underline">
               Cookie statement
             </a>
             <p className="text-xs text-white text-opacity-40">
