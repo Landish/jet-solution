@@ -1,10 +1,10 @@
 import { ReactNode, Suspense } from 'react'
 import { useAtomValue } from 'jotai'
-import { GameDetails } from '../components/Game/GameDetails'
-import { currentRoomAtom } from '../store/store'
-import { Container } from '../components/Container/Container'
-import { GameOver } from '../components/Game/GameOver'
-import { GameRooms, GameRoomsSkeleton } from '../components/Game/GameRooms'
+import { GameDetails } from '@/components/Game/GameDetails'
+import { currentRoomAtom } from '@/store/store'
+import { Container } from '@/components/Container/Container'
+import { GameOver } from '@/components/Game/GameOver'
+import { GameRooms, GameRoomsSkeleton } from '@/components/Game/GameRooms'
 
 export function GameLobby(): ReactNode {
   return (

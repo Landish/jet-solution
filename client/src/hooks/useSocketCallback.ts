@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useAtomValue } from 'jotai'
-import { IGameMove, IGameOver, isSocketConnectedAtom } from '../store/store'
-import { useSocket } from './useSocket'
+import { IGameMove, IGameOver, isSocketConnectedAtom } from '@/store/store'
+import { useSocket } from '@/hooks/useSocket'
 
 export interface ISocketServerEventsMap {
   randomNumber: (data: IGameMove) => void

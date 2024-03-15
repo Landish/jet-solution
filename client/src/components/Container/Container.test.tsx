@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
-import { Container } from './Container'
+import { Container } from '@/components/Container/Container'
 
 describe('<Container />', () => {
   it('should render children', () => {

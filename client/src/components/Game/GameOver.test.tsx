@@ -1,9 +1,9 @@
 import '@testing-library/jest-dom'
 import { act, fireEvent, render, screen } from '@testing-library/react'
 import { GameOver } from './GameOver'
-import { TestProviders, getTestStore } from '../../test-utils'
-import { authUserAtom, gameOverAtom, gameReadyAtom } from '../../store/store'
-import { socket } from '../../libs/socket'
+import { TestProviders, getTestStore } from '@/test-utils'
+import { authUserAtom, gameOverAtom, gameReadyAtom } from '@/store/store'
+import { socket } from '@/libs/socket'
 
 describe('<GameOver />', () => {
   afterEach(() => {

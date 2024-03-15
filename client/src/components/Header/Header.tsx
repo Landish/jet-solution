@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
-import { Logo } from '../Logo/Logo'
-import { Container } from '../Container/Container'
+import { Logo } from '@/components/Logo/Logo'
+import { Container } from '@/components/Container/Container'
 
 export function Header(): ReactNode {
   return (
@@ -10,7 +10,6 @@ export function Header(): ReactNode {
           <Logo />
           <div className="h-10">
             <h1 className="text-white font-bold text-lg leading-5">
-              {/* TODO: Make player name dynamic. */}
               Playing with Sabrican
             </h1>
             <h2 className="text-white font-normal text-sm leading-6">

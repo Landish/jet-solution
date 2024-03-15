@@ -1,9 +1,9 @@
 import { ReactNode } from 'react'
-import { IconPlayer } from '../Icons/IconPlayer'
-import { IconCPU } from '../Icons/IconCPU'
-import { IGameMove, authUserAtom } from '../../store/store'
 import { useAtomValue } from 'jotai'
-import { calculateResult, formulaFormatted } from '../../utils/utils'
+import { IconPlayer } from '@/components/Icons/IconPlayer'
+import { IconCPU } from '@/components/Icons/IconCPU'
+import { IGameMove, authUserAtom } from '@/store/store'
+import { calculateResult, formulaFormatted } from '@/utils/utils'
 
 export function GameMove({ move }: { move: IGameMove }): ReactNode {
   const { number, selectedNumber, isCorrectResult, user } = move

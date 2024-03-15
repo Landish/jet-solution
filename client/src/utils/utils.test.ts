@@ -1,4 +1,4 @@
-import { calculateResult, formulaFormatted } from './utils'
+import { calculateResult, formulaFormatted } from '@/utils/utils'
 
 describe('utils', () => {
   describe('calculateResult', () => {

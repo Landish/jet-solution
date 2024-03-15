@@ -1,10 +1,10 @@
 import { ReactNode } from 'react'
 import { useAtom } from 'jotai'
-import { useSocket } from '../hooks/useSocket'
-import { authUserAtom, usernameAtom } from '../store/store'
-import { Container } from '../components/Container/Container'
-import { Button } from '../components/Button/Button'
-import { logger } from '../utils/utils'
+import { useSocket } from '@/hooks/useSocket'
+import { authUserAtom, usernameAtom } from '@/store/store'
+import { Container } from '@/components/Container/Container'
+import { Button } from '@/components/Button/Button'
+import { logger } from '@/utils/utils'
 
 export function LoginView(): ReactNode {
   const { socket } = useSocket()

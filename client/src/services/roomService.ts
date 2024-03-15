@@ -1,4 +1,4 @@
-import { IRoom } from '../store/store'
+import { IRoom } from '@/store/store'
 
 /**
  * Get list of rooms

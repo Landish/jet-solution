@@ -1,7 +1,7 @@
 import { ReactNode, useEffect, useRef } from 'react'
-import { gameMovesAtom } from '../../store/store'
 import { useAtomValue } from 'jotai'
-import { GameMove } from './GameMove'
+import { gameMovesAtom } from '@/store/store'
+import { GameMove } from '@/components/Game/GameMove'
 
 export function GameMoves(): ReactNode {
   const scrollRef = useRef<HTMLDivElement>(null)

@@ -1,9 +1,9 @@
 import '@testing-library/jest-dom'
 import { render, screen, fireEvent } from '@testing-library/react'
-import { TestProviders, getTestStore, loginTestUser } from '../test-utils'
-import { LoginView } from './LoginView'
-import { socket } from '../libs/socket'
-import { authUserAtom } from '../store/store'
+import { TestProviders, getTestStore, loginTestUser } from '@/test-utils'
+import { LoginView } from '@/views/LoginView'
+import { socket } from '@/libs/socket'
+import { authUserAtom } from '@/store/store'
 
 describe('<LoginView />', () => {
   afterEach(() => {

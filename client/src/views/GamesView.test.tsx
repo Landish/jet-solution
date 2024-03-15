@@ -1,10 +1,10 @@
 import '@testing-library/jest-dom'
 import { act, render, screen } from '@testing-library/react'
-import { TestProviders, getTestStore } from '../test-utils'
-import { GamesView } from './GamesView'
-import { currentRoomAtom } from '../store/store'
+import { TestProviders, getTestStore } from '@/test-utils'
+import { GamesView } from '@/views/GamesView'
+import { currentRoomAtom } from '@/store/store'
 
-jest.mock('../services/roomService', () => {
+jest.mock('@/services/roomService', () => {
   return {
     getRooms: [
       {

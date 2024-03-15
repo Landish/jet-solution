@@ -1,8 +1,8 @@
 import '@testing-library/jest-dom'
 import { act, render, screen } from '@testing-library/react'
-import { GameMoves } from './GameMoves'
-import { TestProviders, getTestStore } from '../../test-utils'
-import { gameMovesAtom } from '../../store/store'
+import { GameMoves } from '@/components/Game/GameMoves'
+import { TestProviders, getTestStore } from '@/test-utils'
+import { gameMovesAtom } from '@/store/store'
 
 describe('<GameMoves />', () => {
   afterEach(() => {

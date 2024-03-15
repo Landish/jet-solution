@@ -1,5 +1,5 @@
-import { useAtom, useAtomValue } from 'jotai'
 import { ReactNode } from 'react'
+import { useAtom, useAtomValue } from 'jotai'
 import {
   IRoom,
   authUserAtom,
@@ -9,9 +9,9 @@ import {
   gameOverAtom,
   gameReadyAtom,
   roomsAtom,
-} from '../../store/store'
-import { useSocket } from '../../hooks/useSocket'
-import { IconArrow } from '../Icons/IconArrow'
+} from '@/store/store'
+import { useSocket } from '@/hooks/useSocket'
+import { IconArrow } from '@/components/Icons/IconArrow'
 
 export function GameRooms(): ReactNode {
   const rooms = useAtomValue(roomsAtom)
