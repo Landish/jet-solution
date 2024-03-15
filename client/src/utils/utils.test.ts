@@ -1,4 +1,4 @@
-import { calculateResult } from './utils'
+import { calculateResult, formulaFormatted } from './utils'
 
 describe('utils', () => {
   describe('calculateResult', () => {
@@ -15,6 +15,12 @@ describe('utils', () => {
     it('should calculate result: (1 + 19) / 3 = 19', () => {
       const result = calculateResult({ number: 19, selectedNumber: 1 })
       expect(result).toBe(19)
+    })
+  })
+  describe('formulaFormatted', () => {
+    it('should format correct result: [ ( -1 + 19 ) / 3 ] = 6', () => {
+      const result = formulaFormatted({ number: 19, selectedNumber: -1 })
+      expect(result).toBe(`[ ( -1 + 19 ) / 3 ] = 6`)
     })
   })
 })

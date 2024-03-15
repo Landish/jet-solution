@@ -1,4 +1,4 @@
-interface CalculateResult {
+interface CalculateNumbers {
   selectedNumber: number
   number: number
 }
@@ -6,7 +6,7 @@ interface CalculateResult {
 export function calculateResult({
   selectedNumber,
   number,
-}: CalculateResult): number {
+}: CalculateNumbers): number {
   const sumValues = (num: number[]): number => num.reduce((a, b) => a + b)
 
   const result = (numbers: number[]): number => {
@@ -15,6 +15,13 @@ export function calculateResult({
   }
 
   return result([selectedNumber, number])
+}
+
+export function formulaFormatted({ number, selectedNumber }: CalculateNumbers) {
+  return `[ ( ${selectedNumber} + ${number} ) / 3 ] = ${calculateResult({
+    number,
+    selectedNumber,
+  })}`
 }
 
 export function logger(message: string, ...args: unknown[]): void {

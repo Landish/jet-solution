@@ -2,7 +2,7 @@ import { ReactNode } from 'react'
 
 export function IconCPU(): ReactNode {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="none">
+    <svg width="40" height="40" fill="none" data-testid="IconCPU">
       <rect width="40" height="40" fill="#FF8000" rx="20" />
       <path
         fill="#fff"
