@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom'
 import { act, fireEvent, render, screen } from '@testing-library/react'
-import { GameOver } from './GameOver'
+import { GameOver } from '@app/components/Game/GameOver'
 import { TestProviders, getTestStore } from '@app/test-utils'
 import { authUserAtom, gameOverAtom, gameReadyAtom } from '@app/store/store'
 import { socket } from '@app/libs/socket'

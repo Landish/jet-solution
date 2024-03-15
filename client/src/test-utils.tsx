@@ -1,7 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 import { Provider as StateProvider, createStore } from 'jotai'
 import { ReactNode } from 'react'
-import { SocketProvider } from './providers/SocketProvider'
+import { SocketProvider } from '@app/providers/SocketProvider'
 import { fireEvent, screen } from '@testing-library/react'
 
 interface TestProviders {
