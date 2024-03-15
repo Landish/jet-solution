@@ -1,6 +1,5 @@
 import { ReactNode } from 'react'
 import { useSocketCallback } from '../../hooks/useSocketCallback'
-import { useSocket } from '../../hooks/useSocket'
 import {
   IGameMove,
   IGameOver,
@@ -11,11 +10,11 @@ import {
   gameOverAtom,
   gameReadyAtom,
 } from '../../store/store'
-import { useAtom, useAtomValue } from 'jotai'
+import { useAtom } from 'jotai'
 import { logger } from '../../utils/utils'
-import { Button } from '../Button/Button'
 import { GameControls } from './GameControls'
 import { GameMoves } from './GameMoves'
+import { GameStart } from './GameStart'
 
 export function GameDetails(): ReactNode {
   const [currentNumber, setCurrentNumber] = useAtom(currentNumberAtom)
@@ -57,33 +56,13 @@ export function GameDetails(): ReactNode {
 
   const gameHasNotStarted = gameMoves.length === 0 && currentNumber === null
   if (gameHasNotStarted) {
-    return <GameNotStarted />
+    return <GameStart />
   }
 
   return (
     <div className="h-full" data-testid="GameDetails">
       <GameMoves />
       <GameControls />
-    </div>
-  )
-}
-
-export function GameNotStarted(): ReactNode {
-  const { socket } = useSocket()
-  const isGameReady = useAtomValue(gameReadyAtom)
-
-  function handleGameStart() {
-    socket.emit('letsPlay')
-  }
-
-  return (
-    <div
-      className="flex items-center justify-center h-full"
-      data-testid="GameNotStarted"
-    >
-      <Button onClick={handleGameStart} disabled={!isGameReady}>
-        Start Game
-      </Button>
     </div>
   )
 }

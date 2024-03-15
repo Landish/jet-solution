@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 import { useAtomValue } from 'jotai'
 import { useSocket } from '../../hooks/useSocket'
-import { currentNumberAtom, myTurnAtom } from '../../store/store'
+import { currentNumberAtom, isMyTurnAtom } from '../../store/store'
 import { Button } from '../Button/Button'
 
 export function GameControls(): ReactNode {
@@ -9,7 +9,7 @@ export function GameControls(): ReactNode {
 
   const numbers = [-1, 0, 1]
   const currentNumber = useAtomValue(currentNumberAtom)
-  const isMyTurn = useAtomValue(myTurnAtom)
+  const isMyTurn = useAtomValue(isMyTurnAtom)
 
   function handleSendNumber(selectedNumber: number) {
     socket.emit('sendNumber', {

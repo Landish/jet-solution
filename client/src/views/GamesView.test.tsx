@@ -2,8 +2,7 @@ import '@testing-library/jest-dom'
 import { act, render, screen } from '@testing-library/react'
 import { TestProviders, getTestStore } from '../test-utils'
 import { GamesView } from './GamesView'
-// import { act } from 'react-dom/test-utils'
-import { currentRoomAtom, gameReadyAtom } from '../store/store'
+import { currentRoomAtom } from '../store/store'
 
 jest.mock('../services/roomService', () => {
   return {
@@ -76,39 +75,7 @@ describe('<GamesView />', () => {
       name: 'Room Berlin CPU',
     })
 
-    expect(screen.queryByTestId('GameNotStarted')).toBeInTheDocument()
+    expect(screen.queryByTestId('GameStart')).toBeInTheDocument()
     expect(screen.queryByTestId('GameLobby')).not.toBeInTheDocument()
-  })
-
-  it.skip('should render game controls if started', async () => {
-    render(
-      <TestProviders>
-        <GamesView />
-      </TestProviders>,
-    )
-
-    const store = getTestStore()
-
-    act(() => {
-      // Join room Berlin CPU
-      const gameRoom = screen.getAllByRole('button', {
-        name: /Room Berlin CPU/i,
-      })[0]
-      gameRoom.click()
-
-      // Set game ready
-      store.set(gameReadyAtom, true)
-    })
-
-    // Start the game
-    const startGameButton = screen.getByRole('button', {
-      name: /start game/i,
-    })
-
-    startGameButton.click()
-
-    // expect(screen.queryByTestId('GameControls')).toBeInTheDocument()
-    screen.debug()
-    // expect(screen.queryByTestId('GameNotStarted')).not.toBeInTheDocument()
   })
 })

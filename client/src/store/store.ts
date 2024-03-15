@@ -1,5 +1,5 @@
 import { atom } from 'jotai'
-import { atomWithRefresh, atomWithStorage } from 'jotai/utils'
+import { atomWithStorage } from 'jotai/utils'
 import { getRooms } from '../services/roomService'
 
 /**
@@ -19,18 +19,6 @@ export const usernameAtom = atomWithStorage('username', '')
 
 export const authUserAtom = atom<IAuthUser | null>(null)
 export const isAuthenticatedAtom = atom((get) => get(authUserAtom) !== null)
-
-export interface IUser {
-  id: string
-  name: string
-  room: string
-}
-
-export const usersAtom = atomWithRefresh<Promise<IUser[]>>(async () => {
-  const response = await fetch('http://localhost:3004/users')
-  const users = await response.json()
-  return users as IUser[]
-})
 
 export interface IRoom {
   id: string
@@ -70,7 +58,7 @@ export interface ITurn {
 
 export const currentTurnAtom = atom<ITurn | null>(null)
 
-export const myTurnAtom = atom<boolean>((get) => {
+export const isMyTurnAtom = atom<boolean>((get) => {
   const authUser = get(authUserAtom)
   const currentRoom = get(currentRoomAtom)
   const currentTurn = get(currentTurnAtom)
