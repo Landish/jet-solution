@@ -9,9 +9,9 @@ import {
   gameOverAtom,
   gameReadyAtom,
   roomsAtom,
-} from '@app/store/store'
-import { useSocket } from '@app/hooks/useSocket'
-import { IconArrow } from '@app/components/Icons/IconArrow'
+} from '@app/store'
+import { useSocket } from '@app/hooks'
+import { IconArrow } from '@app/components'
 
 export function GameRooms(): ReactNode {
   const rooms = useAtomValue(roomsAtom)

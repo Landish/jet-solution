@@ -1,8 +1,8 @@
 import '@testing-library/jest-dom'
 import { act, render, screen } from '@testing-library/react'
 import { TestProviders, getTestStore } from '@app/test-utils'
-import { GamesView } from '@app/views/GamesView'
-import { currentRoomAtom } from '@app/store/store'
+import { GamesView } from '@app/views'
+import { currentRoomAtom } from '@app/store'
 
 jest.mock('@app/services/roomService', () => {
   return {

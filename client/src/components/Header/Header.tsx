@@ -1,6 +1,5 @@
 import { ReactNode } from 'react'
-import { Logo } from '@app/components/Logo/Logo'
-import { Container } from '@app/components/Container/Container'
+import { Logo, Container } from '@app/components'
 
 export function Header(): ReactNode {
   return (

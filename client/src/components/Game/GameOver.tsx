@@ -4,12 +4,10 @@ import {
   gameOverAtom,
   gameReadyAtom,
   isWinnerAtom,
-} from '@app/store/store'
-import { LooseAnimation } from '@app/components/Animations/LooseAnimation'
-import { WinAnimation } from '@app/components/Animations/WinAnimation'
-import { useSocket } from '@app/hooks/useSocket'
-import { logger } from '@app/utils/utils'
-import { Button } from '@app/components/Button/Button'
+} from '@app/store'
+import { Button, WinAnimation, LooseAnimation } from '@app/components'
+import { useSocket } from '@app/hooks'
+import { logger } from '@app/utils'
 
 export function GameOver() {
   const { socket } = useSocket()

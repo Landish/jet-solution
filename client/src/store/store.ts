@@ -1,6 +1,6 @@
 import { atom } from 'jotai'
 import { atomWithStorage } from 'jotai/utils'
-import { getRooms } from '@app/services/roomService'
+import { getRooms } from '@app/services'
 
 /**
  * Socket State

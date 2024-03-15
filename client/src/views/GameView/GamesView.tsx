@@ -1,10 +1,13 @@
 import { ReactNode, Suspense } from 'react'
 import { useAtomValue } from 'jotai'
-import { GameDetails } from '@app/components/Game/GameDetails'
-import { currentRoomAtom } from '@app/store/store'
-import { Container } from '@app/components/Container/Container'
-import { GameOver } from '@app/components/Game/GameOver'
-import { GameRooms, GameRoomsSkeleton } from '@app/components/Game/GameRooms'
+import {
+  Container,
+  GameDetails,
+  GameOver,
+  GameRooms,
+  GameRoomsSkeleton,
+} from '@app/components'
+import { currentRoomAtom } from '@app/store'
 
 export function GameLobby(): ReactNode {
   return (

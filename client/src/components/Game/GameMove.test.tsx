@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
-import { GameMove } from '@app/components/Game/GameMove'
+import { GameMove } from '@app/components'
 import { TestProviders } from '@app/test-utils'
 
 describe('<GameMove />', () => {

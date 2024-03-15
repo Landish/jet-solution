@@ -1,9 +1,9 @@
 import '@testing-library/jest-dom'
 import { act, fireEvent, render, screen } from '@testing-library/react'
-import { GameStart } from '@app/components/Game/GameStart'
+import { GameStart } from '@app/components'
 import { TestProviders, getTestStore } from '@app/test-utils'
-import { gameReadyAtom } from '@app/store/store'
-import { socket } from '@app/libs/socket'
+import { gameReadyAtom } from '@app/store'
+import { socket } from '@app/libs'
 
 describe('<GameStart />', () => {
   it('should render children', () => {

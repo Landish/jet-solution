@@ -1,14 +1,14 @@
 import '@testing-library/jest-dom'
 import { act, fireEvent, render, screen } from '@testing-library/react'
-import { GameControls } from '@app/components/Game/GameControls'
+import { GameControls } from '@app/components'
 import { TestProviders, getTestStore } from '@app/test-utils'
 import {
   authUserAtom,
   currentNumberAtom,
   currentTurnAtom,
   gameReadyAtom,
-} from '@app/store/store'
-import { socket } from '@app/libs/socket'
+} from '@app/store'
+import { socket } from '@app/libs'
 
 describe('<GameControls />', () => {
   afterEach(() => {

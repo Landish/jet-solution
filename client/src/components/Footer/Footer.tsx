@@ -1,6 +1,5 @@
 import { ReactNode } from 'react'
-import { LogoFull } from '@app/components/Logo/LogoFull'
-import { Container } from '@app/components/Container/Container'
+import { LogoFull, Container } from '@app/components'
 
 export function Footer(): ReactNode {
   return (
