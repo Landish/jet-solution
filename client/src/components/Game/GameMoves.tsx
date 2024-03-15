@@ -22,11 +22,16 @@ export function GameMoves(): ReactNode {
     /**
      * Max-Height: 100% - header - footer - game controls
      */
-    <div className="empty:hidden max-h-[calc(100vh_-_88px_-_72px_-_72px)] overflow-hidden overflow-y-auto space-y-4 p-4">
+    <div
+      className="empty:hidden max-h-[calc(100vh_-_88px_-_72px_-_72px)] overflow-hidden overflow-y-auto space-y-4 p-4"
+      data-testid="GameMoves"
+    >
       {gameMoves.map((move, index) => (
         <GameMove move={move} key={index} />
       ))}
-      {gameMoves?.length > 0 && <div ref={scrollRef} />}
+      {gameMoves?.length > 0 && (
+        <div ref={scrollRef} data-testid="GameMovesScroll" />
+      )}
     </div>
   )
 }
@@ -51,6 +56,7 @@ export function GameMove({ move }: { move: IGameMove }): ReactNode {
           ? 'flex space-x-4 flex-row-reverse space-x-reverse'
           : 'flex space-x-4'
       }
+      data-testid="GameMove"
     >
       {user === 'CPU' ? <IconCPU /> : <IconPlayer />}
       <div

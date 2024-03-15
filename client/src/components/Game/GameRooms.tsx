@@ -17,7 +17,7 @@ export function GameRooms(): ReactNode {
   const rooms = useAtomValue(roomsAtom)
 
   return (
-    <>
+    <div data-testid="GameRooms">
       <h3 className="text-sm text-green font-bold">Choose you game room</h3>
       <ul className="mt-4 divide-y divide-grey-dark divide-opacity-50">
         {rooms.map((room) => (
@@ -26,7 +26,7 @@ export function GameRooms(): ReactNode {
           </li>
         ))}
       </ul>
-    </>
+    </div>
   )
 }
 

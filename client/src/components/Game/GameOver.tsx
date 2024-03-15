@@ -31,7 +31,10 @@ export function GameOver() {
   }
 
   return (
-    <div className="absolute inset-0 bg-black bg-opacity-50 z-50">
+    <div
+      className="absolute inset-0 bg-black bg-opacity-50 z-50"
+      data-testid="GameOver"
+    >
       <div className="flex pt-[15%] justify-center h-full">
         <div className="space-y-4">
           <div className="flex justify-center">

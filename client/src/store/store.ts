@@ -71,27 +71,27 @@ export interface ITurn {
 export const currentTurnAtom = atom<ITurn | null>(null)
 
 export const myTurnAtom = atom<boolean>((get) => {
-  const authUser = get(authUserAtom)!
-  const currentRoom = get(currentRoomAtom)!
+  const authUser = get(authUserAtom)
+  const currentRoom = get(currentRoomAtom)
   const currentTurn = get(currentTurnAtom)
 
-  if (currentRoom.type === 'human') {
+  if (currentRoom?.type === 'human') {
     if (
-      currentTurn?.user !== authUser.socketId &&
+      currentTurn?.user !== authUser?.socketId &&
       currentTurn?.state === 'wait'
     ) {
       return true
     }
   }
 
-  if (currentRoom.type === 'cpu') {
+  if (currentRoom?.type === 'cpu') {
     if (currentTurn == null) {
       return true
     }
   }
 
   if (
-    currentTurn?.user === authUser.socketId &&
+    currentTurn?.user === authUser?.socketId &&
     currentTurn?.state === 'play'
   ) {
     return true
