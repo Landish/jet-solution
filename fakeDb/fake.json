@@ -19,5 +19,12 @@
       "type": "human"
     }
   ],
-  "users": []
+  "users": [
+    {
+      "id": "aKmJ290ULFgGHqXbAACk",
+      "name": "Chrome",
+      "room": "aa0c86fa",
+      "roomType": "cpu"
+    }
+  ]
 }

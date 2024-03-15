@@ -14,11 +14,11 @@ import {
 import { cn } from '@app/utils'
 import { useSocket } from '@app/hooks'
 
-interface GameRoomItemProps {
+interface GameRoomsItemProps {
   room: IRoom
 }
 
-export function GameRoomItem({ room }: GameRoomItemProps): ReactNode {
+export function GameRoomsItem({ room }: GameRoomsItemProps): ReactNode {
   const { socket } = useSocket()
   const [, setGameReady] = useAtom(gameReadyAtom)
   const [currentRoom, setCurrentRoom] = useAtom(currentRoomAtom)

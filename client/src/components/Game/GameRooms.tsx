@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 import { useAtomValue } from 'jotai'
 import { roomsAtom } from '@app/store'
-import { GameRoomItem } from '@app/components'
+import { GameRoomsItem } from '@app/components'
 
 export function GameRooms(): ReactNode {
   const rooms = useAtomValue(roomsAtom)
@@ -12,7 +12,7 @@ export function GameRooms(): ReactNode {
       <ul className="mt-4 divide-y divide-grey-dark divide-opacity-50">
         {rooms.map((room) => (
           <li key={room.owner}>
-            <GameRoomItem room={room} />
+            <GameRoomsItem room={room} />
           </li>
         ))}
       </ul>
