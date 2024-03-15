@@ -8,6 +8,7 @@ interface ButtonProps extends ComponentProps<'button'> {
 export function Button({ size = 'default', ...props }: ButtonProps): ReactNode {
   return (
     <button
+      {...props}
       className={cn(
         'h-14 rounded-full bg-white text-base  font-bold  text-blue shadow transition-colors',
         'hover:bg-blue hover:text-white',
@@ -17,7 +18,6 @@ export function Button({ size = 'default', ...props }: ButtonProps): ReactNode {
           : 'min-w-60',
         props.className,
       )}
-      {...props}
     />
   )
 }

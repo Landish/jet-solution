@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import { useAtom } from 'jotai'
+import { useAtom, useAtomValue, useSetAtom } from 'jotai'
 import { GameControls, GameMoves, GameStart } from '@app/components'
 import {
   IGameMove,
@@ -10,15 +10,17 @@ import {
   gameMovesAtom,
   gameOverAtom,
   gameReadyAtom,
+  gameStartedAtom,
 } from '@app/store'
 import { logger } from '@app/utils'
 import { useSocketCallback } from '@app/hooks'
 
 export function GameDetails(): ReactNode {
-  const [currentNumber, setCurrentNumber] = useAtom(currentNumberAtom)
-  const [gameMoves, setGameMoves] = useAtom(gameMovesAtom)
-  const [, setCurrentTurn] = useAtom(currentTurnAtom)
-  const [, setGameReady] = useAtom(gameReadyAtom)
+  const setCurrentNumber = useSetAtom(currentNumberAtom)
+  const setGameMoves = useSetAtom(gameMovesAtom)
+  const setCurrentTurn = useSetAtom(currentTurnAtom)
+  const setGameReady = useSetAtom(gameReadyAtom)
+  const gameStarted = useAtomValue(gameStartedAtom)
   const [gameOver, setGameOver] = useAtom(gameOverAtom)
 
   useSocketCallback<{ state: boolean }>('onReady', (data) => {
@@ -52,8 +54,7 @@ export function GameDetails(): ReactNode {
     }
   })
 
-  const gameHasNotStarted = gameMoves.length === 0 && currentNumber === null
-  if (gameHasNotStarted) {
+  if (!gameStarted) {
     return <GameStart />
   }
 

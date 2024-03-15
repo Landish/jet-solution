@@ -17,8 +17,6 @@ export function GameOver() {
   const isWinner = useAtomValue(isWinnerAtom)
   const isGameOver = gameOver?.isOver || false
 
-  if (!isGameOver) return null
-
   function handleNewGame() {
     logger('handleNewGame')
 
@@ -27,6 +25,8 @@ export function GameOver() {
 
     socket.emit('letsPlay')
   }
+
+  if (!isGameOver) return null
 
   return (
     <div
